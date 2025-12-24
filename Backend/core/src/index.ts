@@ -29,9 +29,9 @@ interface PointConfig {
 
 const devices: Map<string, PointConfig[]> = new Map();
 
-app.get("/example.csv", (req, res) => {
-  const csvPath = path.join(process.cwd(), "..", "example.csv");
-  res.download(csvPath, "example.csv");
+app.get("/sample.csv", (req, res) => {
+  const csvPath = path.join(process.cwd(), "..", "sample.csv");
+  res.download(csvPath, "sample.csv");
 });
 
 app.post("/test", async (req, res) => {

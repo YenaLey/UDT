@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import TestSection from './components/TestSection';
-import HostingSection from './components/HostingSection';
-import './styles/App.scss';
+import { useState } from "react";
+import TestSection from "./components/TestSection";
+import HostingSection from "./components/HostingSection";
+import "./styles/App.scss";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'test' | 'hosting'>('test');
+  const [activeTab, setActiveTab] = useState<"test" | "hosting">("test");
 
   return (
     <div className="app">
@@ -15,23 +15,22 @@ export default function App() {
 
       <nav className="tabs">
         <button
-          className={activeTab === 'test' ? 'active' : ''}
-          onClick={() => setActiveTab('test')}
+          className={activeTab === "test" ? "active" : ""}
+          onClick={() => setActiveTab("test")}
         >
           Protocol Playground
         </button>
         <button
-          className={activeTab === 'hosting' ? 'active' : ''}
-          onClick={() => setActiveTab('hosting')}
+          className={activeTab === "hosting" ? "active" : ""}
+          onClick={() => setActiveTab("hosting")}
         >
-          CSV Hosting
+          Deploy API
         </button>
       </nav>
 
       <main className="main">
-        {activeTab === 'test' ? <TestSection /> : <HostingSection />}
+        {activeTab === "test" ? <TestSection /> : <HostingSection />}
       </main>
     </div>
   );
 }
-

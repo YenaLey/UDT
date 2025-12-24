@@ -72,7 +72,7 @@ def read():
         
         value = run_in_loop(read_value())
 
-        return jsonify({'value': value, 'address': address})
+        return jsonify({'value': value})
     except Exception as e:
         import traceback
         traceback.print_exc()

@@ -115,7 +115,7 @@ export default function TestSection() {
       </div>
 
       <button onClick={handleTest} disabled={loading} className="test-btn">
-        {loading ? 'Testing...' : 'Test Read'}
+        {loading ? 'Sending...' : 'Send'}
       </button>
 
       {result && (
