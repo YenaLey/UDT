@@ -1,69 +1,104 @@
-# UDT
+# UDT (Universal Data Translator)
 
-### 데모 영상
+CSV 파일 업로드만으로 산업용 프로토콜을 HTTP REST API로 변환하는 프록시 서비스
 
-🎞️ [Demo.mp4](https://pub-80a42cc7d41749078071917a4265d3ca.r2.dev/udt.mp4)
+## Demo
 
-### 서비스 소개
+🎥 [Watch Demo Video](https://pub-80a42cc7d41749078071917a4265d3ca.r2.dev/udt.mp4)
 
-📋 [SERVICE_PLAN.md](https://github.com/i2na/UDT/blob/main/Docs/SERVICE_PLAN.md)
+📖 [Service Plan](https://github.com/i2na/UDT/blob/main/Docs/SERVICE_PLAN.md)
 
-### 설치
+---
+
+## Quick Start
+
+### Installation
 
 ```bash
-# Backend 설치
+# Backend
 cd Backend
 ./install.sh
 
-# Frontend 설치
+# Frontend
 cd Frontend
 yarn install
 ```
 
-### 실행
+### Run
 
 ```bash
-# Backend 실행
+# Start backend services
 cd Backend
 pm2 start ecosystem.config.cjs
 
-pm2 logs # 전체 로그 확인
-pm2 delete all # 중지
-
-# Frontend 실행
+# Start frontend
 cd Frontend
 yarn dev
 ```
 
-http://localhost:5173 접속
+Open http://localhost:5173
 
-### 사용 방법
+### Stop
 
-#### Protocol Playground
+```bash
+pm2 stop all
+pm2 delete all
+```
+
+---
+
+## Usage
+
+### Protocol Playground
+
+프로토콜을 즉시 테스트할 수 있는 인터랙티브 환경
 
 1. 프로토콜 선택 (Modbus TCP / BACnet)
-2. 연결 정보 입력 (Host, Port, Device ID 등)
+2. 연결 정보 입력 (Host, Port, Device ID)
 3. 레지스터 설정 (Address, Length, Format)
-4. **Send** 클릭
-5. Raw 데이터 결과 확인
+4. **Send** 버튼 클릭
+5. 결과 확인
 
-#### Deploy API
+### Deploy API
 
-1. **Download Sample CSV** 클릭하여 템플릿 다운로드
-2. CSV 파일을 열어 장비 정보 입력
-3. 수정한 CSV 파일 업로드
-4. 생성된 3개 API 엔드포인트 확인:
-   ```
-   GET /device/{device_id}/snapshot      # 전체 포인트 조회
-   GET /device/{device_id}/raw?alias=... # 개별 포인트 조회
-   GET /device/{device_id}/points        # 포인트 목록
-   ```
+CSV 파일로 REST API를 즉시 배포
 
-### 포트 정보
+1. **Download Sample CSV** - 템플릿 다운로드
+2. CSV 파일에 장비 정보 입력
+3. 파일 업로드
+4. 생성된 API 엔드포인트 사용:
 
-| 서비스         | 포트 | 설명              |
+```
+GET /device/{device_id}/snapshot       # 전체 포인트 조회
+GET /device/{device_id}/raw?alias=...  # 개별 포인트 조회
+GET /device/{device_id}/points         # 포인트 목록
+```
+
+---
+
+## Architecture
+
+| Service        | Port | Description       |
 | -------------- | ---- | ----------------- |
 | Frontend       | 5173 | React UI          |
-| Core API       | 3000 | 메인 API 서버     |
-| Modbus Adapter | 5001 | Modbus TCP 어댑터 |
-| BACnet Adapter | 5002 | BACnet 어댑터     |
+| Core API       | 3000 | Main API Server   |
+| Modbus Adapter | 5001 | Modbus TCP Reader |
+| BACnet Adapter | 5002 | BACnet Reader     |
+
+---
+
+## Commands
+
+```bash
+# View logs
+pm2 logs              # All services
+pm2 logs udt-core     # Core only
+pm2 logs modbus-adapter
+pm2 logs bacnet-adapter
+
+# Restart services
+pm2 restart all
+
+# Monitor
+pm2 monit
+```
