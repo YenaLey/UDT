@@ -13,25 +13,15 @@ CSV 파일 업로드만으로 산업용 프로토콜을 HTTP REST API로 변환�
 ### Installation
 
 ```bash
-# Backend
-cd Backend
+# Install all dependencies (Backend + Frontend)
 ./install.sh
-
-# Frontend
-cd Frontend
-yarn install
 ```
 
 ### Run
 
 ```bash
-# Start backend services
-cd Backend
+# Start all services (Backend + Frontend)
 pm2 start ecosystem.config.cjs
-
-# Start frontend
-cd Frontend
-yarn dev
 ```
 
 Open http://localhost:5173
@@ -83,14 +73,18 @@ GET /device/{device_id}/points         # 포인트 목록
 
 ```bash
 # View logs
-pm2 logs              # All services
-pm2 logs udt-core     # Core only
+pm2 logs                # All services
+pm2 logs udt-core       # Core only
 pm2 logs modbus-adapter
 pm2 logs bacnet-adapter
+pm2 logs udt-frontend
 
 # Restart services
 pm2 restart all
 
 # Monitor
 pm2 monit
+
+# List all running services
+pm2 list
 ```
