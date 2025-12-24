@@ -12,9 +12,21 @@ CSV 파일 업로드만으로 산업용 프로토콜을 HTTP REST API로 변환�
 
 ### Installation
 
+**Linux / macOS:**
+
 ```bash
+# Give execute permission (first time only)
+chmod +x install.sh
+
 # Install all dependencies (Backend + Frontend)
 ./install.sh
+```
+
+**Windows:**
+
+```cmd
+# Install all dependencies (Backend + Frontend)
+install.bat
 ```
 
 ### Run
