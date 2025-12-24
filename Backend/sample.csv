@@ -3,4 +3,3 @@ modbus-tcp,192.168.1.100,502,1,holding,0,2,DWORD,10,true,boiler_temp,보일러�
 modbus-tcp,192.168.1.100,502,1,holding,10,1,WORD,1,false,boiler_status,보일러상태
 bacnet,192.168.1.101,,5001,analogInput,1,,,1,true,room_temp,실내온도
 bacnet,192.168.1.101,,5001,analogInput,2,,,1,true,room_humidity,실내습도
-http,192.168.1.102,8080,,,/api/power,,,,,,total_power,총전력

@@ -6,7 +6,7 @@ CSV 파일 업로드만으로 산업용 프로토콜을 HTTP REST API로 변환�
 
 🎥 [Watch Demo Video](https://pub-80a42cc7d41749078071917a4265d3ca.r2.dev/udt.mp4)
 
-📖 [Service Plan](https://github.com/i2na/UDT/blob/main/Docs/SERVICE_PLAN.md)
+📖 [Pitch Deck](https://github.com/i2na/UDT/blob/main/Docs/PITCH_DECK.md)
 
 ---
 
