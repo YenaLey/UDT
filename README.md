@@ -2,7 +2,7 @@
 
 ### 데모 영상
 
-<video src="https://pub-80a42cc7d41749078071917a4265d3ca.r2.dev/udt.mp4" controls width="100%"></video>
+🎞️ [Demo.mp4](https://pub-80a42cc7d41749078071917a4265d3ca.r2.dev/udt.mp4)
 
 ### 서비스 소개
 
